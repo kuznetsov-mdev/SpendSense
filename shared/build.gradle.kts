@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
+    alias(libs.plugins.android.library)
 }
 
 kotlin {
     jvm()
+    androidTarget()
 
     sourceSets {
         //only common for all platform libs
@@ -17,4 +19,8 @@ kotlin {
             }
         }
     }
+}
+
+android {
+    namespace = "app.namespace"
 }
