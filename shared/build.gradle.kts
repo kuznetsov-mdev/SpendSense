@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
+    alias(libs.plugins.android.library)
 }
 
 kotlin {
     jvm()
+    androidTarget()
 
     sourceSets {
         //only common for all platform libs
@@ -16,5 +18,15 @@ kotlin {
                 implementation(compose.material)
             }
         }
+    }
+}
+
+android {
+    namespace = findProperty("app.namespace").toString()
+    compileSdk = findProperty("android.compileSdk").toString().toInt()
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
