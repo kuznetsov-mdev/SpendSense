@@ -5,8 +5,7 @@
     <application
         android:label="SpendSense">
 
-        <activity android:name=".MainActivity"
-            tools:ignore="Instantiatable">
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

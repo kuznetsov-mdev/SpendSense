@@ -4,10 +4,8 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import ru.sbx.spend_sense.SayHelloFromCommon
-import ru.sbx.spend_sense.sayHello
 
 fun main() {
-    sayHello()
 
     application {
         val state = rememberWindowState().apply { size = DpSize(200.dp, 200.dp) }
