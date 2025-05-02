@@ -3,6 +3,8 @@ include(":shared")
 include(":desktop")
 include(":android")
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 dependencyResolutionManagement {
     repositories {
         google()
