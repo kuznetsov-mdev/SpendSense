@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
+    alias(libs.plugins.cocoapods)
 }
 
 kotlin {
@@ -9,18 +10,42 @@ kotlin {
     androidTarget()
 
     listOf(
-        iosX64(),
         iosArm64(),
+        iosX64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "shared"
-            isStatic = false
         }
     }
 
+    cocoapods {
+        summary = "SpendSense"
+        homepage = "https://example.com/shared"
+        version = "1.0"
+        ios.deploymentTarget = "11.0"
+        podfile = project.file("../iosApp/Podfile")
+        framework {
+            baseName = "shared"
+        }
+    }
 
     sourceSets {
+        val commonMain by getting
+        val androidMain by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+        }
+        val iosX64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
+        }
+
         //only common for all platform libs
         commonMain {
             dependencies {
