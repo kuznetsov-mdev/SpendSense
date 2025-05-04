@@ -3,13 +3,13 @@ import shared
 
 struct ContentView: View {
     var body: some View {
-       ComposeView()
+        ComposeView()
     }
 }
 
-struct ComposeView : UIViewControllerRepresentable {
+struct ComposeView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-    
+
     func makeUIViewController(context: Context) -> some UIViewController {
         RootViewKt.MainViewController()
     }
