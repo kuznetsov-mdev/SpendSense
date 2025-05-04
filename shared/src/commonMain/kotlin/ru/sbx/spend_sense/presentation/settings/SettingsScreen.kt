@@ -1,4 +1,4 @@
-package ru.sbx.spend_sense.info
+package ru.sbx.spend_sense.presentation.settings
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import ru.sbx.spend_sense.platform.DeviceInfo
 
 @Composable
-fun DeviceInfoScreen() {
+fun SettingsScreen() {
     Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
         Text(DeviceInfo().getSummary())
     }

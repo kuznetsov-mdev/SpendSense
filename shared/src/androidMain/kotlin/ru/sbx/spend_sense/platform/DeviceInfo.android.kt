@@ -37,8 +37,7 @@ actual class DeviceInfo {
                     "cpu: unknown\n" +
                     "screenWidth: $screenWidth\n" +
                     "screenHeight: $screenHeight\n" +
-                    "screenDensity: $screenDestiny\n" +
-                    ")"
+                    "screenDensity: $screenDestiny\n"
         }
     }
 
