@@ -5,11 +5,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import ru.sbx.spend_sense.info.DeviceInfoScreen
+import ru.sbx.spend_sense.presentation.root.RootScreen
 
 @Composable
 fun SayHelloFromCommon() {
     Box(modifier = Modifier.size(200.dp)) {
-        DeviceInfoScreen()
+        RootScreen()
     }
 }
