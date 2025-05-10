@@ -4,7 +4,6 @@ import ru.sbx.spend_sense.presentation.base.BaseViewState
 import ru.sbx.spend_sense.presentation.common.ui.AppPrefs
 
 class RootContract {
-
     data class State(
         val isDarkTheme: Boolean,
         val isFirstDayMonday: Boolean
