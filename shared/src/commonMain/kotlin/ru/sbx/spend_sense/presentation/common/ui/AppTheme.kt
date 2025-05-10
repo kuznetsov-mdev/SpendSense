@@ -5,10 +5,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 
-data class AppPrefs(
-    val firstDayIsMonday: Boolean = true
-)
-
 val LocalAppPrefs = staticCompositionLocalOf { AppPrefs() }
 val LocalAppColors = staticCompositionLocalOf { darkPalette }
 
