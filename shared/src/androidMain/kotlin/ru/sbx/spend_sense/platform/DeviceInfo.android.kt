@@ -28,8 +28,7 @@ actual class DeviceInfo {
                     "cpu: $cpu\n" +
                     "screenWidth: $screenWidth\n" +
                     "screenHeight: $screenHeight\n" +
-                    "screenDensity: $screenDestiny\n" +
-                    ")"
+                    "screenDensity: $screenDestiny\n"
         } else {
             "osName: $osName\n" +
                     "osVersion: $osVersion\n" +
