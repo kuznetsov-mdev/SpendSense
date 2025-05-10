@@ -5,6 +5,10 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 
+/**
+ * staticCompositionLocalOf -> recomposition will be apply for whole compose graph
+ * localCompositionOf -> recomposition will be apply only for local component (which use this settings)
+ **/
 val LocalAppPrefs = staticCompositionLocalOf { AppPrefs() }
 val LocalAppColors = staticCompositionLocalOf { darkPalette }
 
