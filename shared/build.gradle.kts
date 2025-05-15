@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
     alias(libs.plugins.cocoapods)
+    alias(libs.plugins.moko.res)
 }
 
 kotlin {
@@ -56,6 +57,10 @@ kotlin {
             }
         }
     }
+}
+
+multiplatformResources {
+    multiplatformResourcesPackage = "ru.sbx.spend_sense"
 }
 
 android {
