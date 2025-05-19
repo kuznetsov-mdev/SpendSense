@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
     alias(libs.plugins.cocoapods)
-    alias(libs.plugins.moko.res)
+    alias(libs.plugins.libres)
 }
 
 kotlin {
@@ -54,13 +54,14 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
+                api(libs.libres.compose)
             }
         }
-    }
-}
 
-multiplatformResources {
-    multiplatformResourcesPackage = "ru.sbx.spend_sense"
+        androidMain {
+            dependsOn(commonMain)
+        }
+    }
 }
 
 android {
@@ -71,4 +72,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+}
+
+libres {
+    generatedClassName = "MR" // "Res" by default
 }
