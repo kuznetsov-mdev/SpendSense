@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dark_theme">Тёмная тема</string>
+    <string name="events">События</string>
+    <string name="categories">Категории</string>
+    <string name="settings">Настройки</string>
+</resources>
