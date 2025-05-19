@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import ru.sbx.spend_sense.MR
 import ru.sbx.spend_sense.presentation.common.ui.AppThemeProvider
 import ru.sbx.spend_sense.presentation.settings.SettingsViewModel
 
@@ -46,7 +47,7 @@ fun BoxScope.SettingsScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                "Dark theme", modifier = Modifier.weight(1f),
+                MR.string.dark_theme, modifier = Modifier.weight(1f),
                 color = AppThemeProvider.colors.onSurface
             )
             Checkbox(
