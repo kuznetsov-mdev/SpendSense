@@ -1,16 +1,15 @@
 package ru.sbx.spend_sense
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import ru.sbx.spend_sense.presentation.root.RootViewModel
 import ru.sbx.spend_sense.presentation.root.compose.RootScreen
 
 @Composable
 fun SayHelloFromCommon() {
-    Box(modifier = Modifier.size(200.dp)) {
+    Box(modifier = Modifier.fillMaxSize()) {
         RootScreen(RootViewModel())
     }
 }
