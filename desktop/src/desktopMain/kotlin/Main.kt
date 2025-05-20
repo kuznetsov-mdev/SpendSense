@@ -8,7 +8,7 @@ import ru.sbx.spend_sense.SayHelloFromCommon
 fun main() {
 
     application {
-        val state = rememberWindowState().apply { size = DpSize(200.dp, 200.dp) }
+        val state = rememberWindowState().apply { size = DpSize(1200.dp, 1200.dp) }
         Window(
             onCloseRequest = {exitApplication()},
             state = state,

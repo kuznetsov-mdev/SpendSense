@@ -55,6 +55,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material)
                 api(libs.libres.compose)
+                implementation(libs.multiplatform.settings)
             }
         }
 
