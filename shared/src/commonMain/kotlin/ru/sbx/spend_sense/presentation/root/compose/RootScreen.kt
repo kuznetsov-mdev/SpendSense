@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import ru.sbx.spend_sense.di.getKoinInstance
 import ru.sbx.spend_sense.presentation.categories.CategoriesScreen
 import ru.sbx.spend_sense.presentation.common.ui.AppTheme
 import ru.sbx.spend_sense.presentation.common.ui.AppThemeProvider
@@ -44,7 +45,6 @@ fun BoxScope.RootNavigation(selectedTab: AppTab) {
     when (selectedTab) {
         AppTab.Categories -> CategoriesScreen()
         AppTab.Events -> EventsScreen()
-        AppTab.Settings -> SettingsScreen(SettingsViewModel())
+        AppTab.Settings -> SettingsScreen(SettingsViewModel(getKoinInstance()))
     }
-
 }
