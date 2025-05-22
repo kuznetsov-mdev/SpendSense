@@ -15,7 +15,7 @@ class SettingsViewModel(deviceInfo: DeviceInfo) : BaseViewModel<State, Nothing>(
         }.launchIn(viewModelScope)
 
         updateState {
-            copy(deviceInfo = deviceInfo.getSummary())
+            copy(info = deviceInfo.getSummary())
         }
     }
 

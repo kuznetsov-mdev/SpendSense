@@ -4,12 +4,12 @@ import ru.sbx.spend_sense.presentation.base.BaseViewState
 
 class SettingsContract {
     data class State(
-        val deviceInfo: String,
+        val info: String,
         val isDarkTheme: Boolean
     ) : BaseViewState {
         companion object {
             val NONE = State(
-                deviceInfo = "",
+                info = "",
                 isDarkTheme = false
             )
         }
