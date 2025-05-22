@@ -9,10 +9,8 @@ expect class AppSettings constructor() {
     val settings: Settings
 }
 
-object SettingsManager {
-    private const val THEME_KEY = "THEME_KEY"
-
-    val appSettings: AppSettings = AppSettings()
+class SettingsManager(private val settings: Settings) {
+    private val THEME_KEY = "THEME_KEY"
 
     private val _isDarkThemeFlow = MutableStateFlow(isDarkTheme)
     val isDarkThemFlow = _isDarkThemeFlow.asStateFlow()
@@ -20,8 +18,7 @@ object SettingsManager {
     var isDarkTheme: Boolean
         set(value) {
             _isDarkThemeFlow.update { value }
-            appSettings.settings.putBoolean(THEME_KEY, value)
+            settings.putBoolean(THEME_KEY, value)
         }
-        get() = appSettings.settings.getBoolean(THEME_KEY, true)
-
+        get() = settings.getBoolean(THEME_KEY, true)
 }
