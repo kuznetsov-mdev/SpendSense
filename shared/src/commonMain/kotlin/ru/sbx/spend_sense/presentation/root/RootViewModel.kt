@@ -7,11 +7,13 @@ import ru.sbx.spend_sense.presentation.root.model.AppTab
 import ru.sbx.spend_sense.presentation.root.model.RootContract.State
 import ru.sbx.spend_sense.storage.SettingsManager
 
-class RootViewModel : BaseViewModel<State, Nothing>() {
+class RootViewModel(
+    settingsManager: SettingsManager
+) : BaseViewModel<State, Nothing>() {
     override fun initialState() = State.NONE
 
     init {
-        SettingsManager.isDarkThemFlow.onEach { isDark ->
+        settingsManager.isDarkThemFlow.onEach { isDark ->
             updateState { copy(isDarkTheme = isDark) }
         }.launchIn(viewModelScope)
     }

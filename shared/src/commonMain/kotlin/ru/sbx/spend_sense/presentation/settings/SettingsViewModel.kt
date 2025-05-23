@@ -7,10 +7,13 @@ import ru.sbx.spend_sense.presentation.base.BaseViewModel
 import ru.sbx.spend_sense.presentation.settings.SettingsContract.State
 import ru.sbx.spend_sense.storage.SettingsManager
 
-class SettingsViewModel(deviceInfo: DeviceInfo) : BaseViewModel<State, Nothing>() {
+class SettingsViewModel(
+    deviceInfo: DeviceInfo,
+    private val settingsManager: SettingsManager
+) : BaseViewModel<State, Nothing>() {
 
     init {
-        SettingsManager.isDarkThemFlow.onEach {
+        settingsManager.isDarkThemFlow.onEach {
             updateState { copy(isDarkTheme = it) }
         }.launchIn(viewModelScope)
 
@@ -22,6 +25,6 @@ class SettingsViewModel(deviceInfo: DeviceInfo) : BaseViewModel<State, Nothing>(
     override fun initialState() = State.NONE
 
     fun switchTheme(isDark: Boolean) {
-        SettingsManager.isDarkTheme = isDark
+        settingsManager.isDarkTheme = isDark
     }
 }
