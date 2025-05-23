@@ -5,10 +5,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-expect class AppSettings constructor() {
-    val settings: Settings
-}
-
 class SettingsManager(private val settings: Settings) {
     private val THEME_KEY = "THEME_KEY"
 
