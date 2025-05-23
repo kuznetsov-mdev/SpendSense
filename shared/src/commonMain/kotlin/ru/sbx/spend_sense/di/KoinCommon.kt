@@ -3,7 +3,9 @@ package ru.sbx.spend_sense.di
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin
+import org.koin.core.module.Module
 import org.koin.core.qualifier.Qualifier
+import org.koin.dsl.module
 
 inline fun <reified T> getKoinInstance(qualifier: Qualifier? = null): T {
     return object : KoinComponent {
@@ -13,6 +15,8 @@ inline fun <reified T> getKoinInstance(qualifier: Qualifier? = null): T {
 
 fun initKoin() = startKoin {
     modules(
-        CoreModule.deviceInfo
+        CoreModule.deviceInfo,
+        StorageModule.settings,
+        platformModule
     )
 }
