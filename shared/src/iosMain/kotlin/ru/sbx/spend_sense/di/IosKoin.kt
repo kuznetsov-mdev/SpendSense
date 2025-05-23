@@ -6,15 +6,15 @@ import org.koin.dsl.module
 import platform.Foundation.NSUserDefaults
 
 actual val platformModule: Module = module {
-
-    single {
-        NSUserDefaults.standardUserDefaults()
-    }
-    single {
-        NSUserDefaultsSettings(get())
-    }
 }
 
 object IosKoin {
-    fun initialize() = initKoin()
+    fun initialize() = initKoin(module = module {
+        single {
+            NSUserDefaults.standardUserDefaults()
+        }
+        single {
+            NSUserDefaultsSettings(get())
+        }
+    })
 }
