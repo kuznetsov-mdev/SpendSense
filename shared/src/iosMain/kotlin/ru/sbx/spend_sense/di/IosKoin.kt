@@ -9,7 +9,7 @@ actual val platformModule: Module = module {
 }
 
 object IosKoin {
-    fun initialize() = initKoin(module = module {
+    fun initialize() = initKoin(appModule = module {
         single {
             NSUserDefaults.standardUserDefaults()
         }

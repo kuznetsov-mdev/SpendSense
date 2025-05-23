@@ -9,7 +9,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        initKoin(module = module {
+        initKoin(appModule = module {
             single<Context> { this@App.applicationContext }
         })
         instance = this

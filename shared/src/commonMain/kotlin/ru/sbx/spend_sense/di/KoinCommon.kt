@@ -13,11 +13,11 @@ inline fun <reified T> getKoinInstance(qualifier: Qualifier? = null): T {
     }.value
 }
 
-fun initKoin(module: Module = module { }) = startKoin {
+fun initKoin(appModule: Module = module { }) = startKoin {
     modules(
         CoreModule.deviceInfo,
         StorageModule.settings,
         platformModule,
-        module
+        appModule
     )
 }
