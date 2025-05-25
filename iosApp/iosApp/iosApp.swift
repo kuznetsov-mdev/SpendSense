@@ -12,7 +12,7 @@ import shared
 struct iosApp: App {
     
     init() {
-        IosKoin.shared.initialize()
+        IosKoin.shared.initialize(userDefaults: UserDefaults.standard)
     }
     
     var body: some Scene {

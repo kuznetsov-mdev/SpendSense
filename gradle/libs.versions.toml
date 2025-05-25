@@ -3,7 +3,7 @@ kotlin = "1.9.21"
 compose = "1.5.12"
 agp = "8.3.0"
 activity-compose = "1.8.1"
-libres = "1.2.0"
+libres = "1.2.2"
 multiplatform-settings = "1.0.0"
 koin = "3.4.0"
 
