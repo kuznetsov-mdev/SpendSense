@@ -50,12 +50,20 @@ kotlin {
         //only common for all platform libs
         commonMain {
             dependencies {
+                //Compose
                 implementation(compose.ui)
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
+
+                //Resources
                 api(libs.libres.compose)
+
+                //Settings
                 implementation(libs.multiplatform.settings)
+
+                //DI
+                api(libs.koin.core)
             }
         }
 

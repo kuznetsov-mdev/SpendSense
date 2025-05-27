@@ -34,7 +34,7 @@ fun BoxScope.SettingsScreen(
             backgroundColor = AppThemeProvider.colors.surface
         ) {
             Text(
-                state.deviceInfo, color = AppThemeProvider.colors.onSurface,
+                state.info, color = AppThemeProvider.colors.onSurface,
                 modifier = Modifier.padding(16.dp)
             )
         }
