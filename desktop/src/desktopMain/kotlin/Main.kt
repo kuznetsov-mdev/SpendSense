@@ -3,9 +3,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import ru.sbx.spend_sense.di.getKoinInstance
 import ru.sbx.spend_sense.di.initKoin
-import ru.sbx.spend_sense.presentation.root.RootViewModel
 import ru.sbx.spend_sense.presentation.root.compose.RootScreen
 
 fun main() {
@@ -19,7 +17,7 @@ fun main() {
             state = state,
             title = "SpendSense"
         ) {
-            RootScreen(RootViewModel(getKoinInstance()))
+            RootScreen()
         }
     }
 }

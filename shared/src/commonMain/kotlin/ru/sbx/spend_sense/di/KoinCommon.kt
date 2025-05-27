@@ -18,6 +18,7 @@ fun initKoin(appModule: Module = module { }) = startKoin {
         CoreModule.deviceInfo,
         StorageModule.settings,
         platformModule,
-        appModule
+        appModule,
+        ViewModelsModule.viewModels
     )
 }
