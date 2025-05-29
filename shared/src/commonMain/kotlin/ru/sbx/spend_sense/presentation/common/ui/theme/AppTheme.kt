@@ -1,4 +1,4 @@
-package ru.sbx.spend_sense.presentation.common.ui
+package ru.sbx.spend_sense.presentation.common.ui.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider

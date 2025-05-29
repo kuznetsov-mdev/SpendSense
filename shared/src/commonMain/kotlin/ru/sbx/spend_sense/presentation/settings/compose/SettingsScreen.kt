@@ -18,7 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ru.sbx.spend_sense.MR
-import ru.sbx.spend_sense.presentation.common.ui.AppThemeProvider
+import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
 import ru.sbx.spend_sense.presentation.settings.SettingsViewModel
 
 @Composable

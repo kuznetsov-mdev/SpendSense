@@ -10,8 +10,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import ru.sbx.spend_sense.di.getKoinInstance
 import ru.sbx.spend_sense.presentation.categories.CategoriesScreen
-import ru.sbx.spend_sense.presentation.common.ui.AppTheme
-import ru.sbx.spend_sense.presentation.common.ui.AppThemeProvider
+import ru.sbx.spend_sense.presentation.common.ui.theme.AppTheme
+import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
 import ru.sbx.spend_sense.presentation.events.EventsScreen
 import ru.sbx.spend_sense.presentation.root.RootViewModel
 import ru.sbx.spend_sense.presentation.root.model.AppTab

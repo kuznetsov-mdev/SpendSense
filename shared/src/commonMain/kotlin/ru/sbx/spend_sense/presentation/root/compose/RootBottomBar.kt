@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 import io.github.skeptick.libres.compose.painterResource
-import ru.sbx.spend_sense.presentation.common.ui.AppThemeProvider
+import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
 import ru.sbx.spend_sense.presentation.root.model.AppTab
 import ru.sbx.spend_sense.presentation.root.model.BottomBarItem
 

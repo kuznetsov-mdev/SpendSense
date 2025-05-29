@@ -1,7 +1,7 @@
 package ru.sbx.spend_sense.presentation.root.model
 
 import ru.sbx.spend_sense.presentation.base.BaseViewState
-import ru.sbx.spend_sense.presentation.common.ui.AppPrefs
+import ru.sbx.spend_sense.presentation.common.ui.theme.AppPrefs
 
 class RootContract {
     data class State(
