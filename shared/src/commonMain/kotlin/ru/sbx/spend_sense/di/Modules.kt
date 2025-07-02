@@ -35,5 +35,6 @@ object ViewModelsModule {
         single { RootViewModel(get()) }
         factory { SettingsViewModel(get(), get()) }
         single { DatePickerViewModel() }
+        single { CategoriesViewModel(get()) }
     }
 }
