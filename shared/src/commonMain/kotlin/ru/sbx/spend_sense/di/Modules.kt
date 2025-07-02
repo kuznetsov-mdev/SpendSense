@@ -3,6 +3,8 @@ package ru.sbx.spend_sense.di
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import ru.sbx.spend_sense.platform.DeviceInfo
+import ru.sbx.spend_sense.presentation.categories.data.CategoriesRepository
+import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesViewModel
 import ru.sbx.spend_sense.presentation.common.ui.calendar.DatePickerViewModel
 import ru.sbx.spend_sense.presentation.root.RootViewModel
 import ru.sbx.spend_sense.presentation.settings.SettingsViewModel
@@ -19,6 +21,12 @@ object CoreModule {
 object StorageModule {
     val settings = module {
         single { SettingsManager(get()) }
+    }
+}
+
+object RepositoriesModule {
+    val repositories = module {
+        single { CategoriesRepository() }
     }
 }
 
