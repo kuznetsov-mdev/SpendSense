@@ -9,18 +9,15 @@ import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
 
 @Composable
 fun BoxScope.EventsScreen() {
-    @Composable
-    fun BoxScope.EventsScreen() {
-        DatePickerView(
-            viewModel = getKoinInstance(),
-            colors = CalendarColors.default.copy(
-                colorSurface = AppThemeProvider.colors.surface,
-                colorOnSurface = AppThemeProvider.colors.onSurface,
-                colorAccent = AppThemeProvider.colors.accent
-            ),
-            firstDayIsMonday = AppThemeProvider.appPrefs.firstDayIsMonday,
-            labels = emptyList(),
-            selectDayListener = { day -> }
-        )
-    }
+    DatePickerView(
+        viewModel = getKoinInstance(),
+        colors = CalendarColors.default.copy(
+            colorSurface = AppThemeProvider.colors.surface,
+            colorOnSurface = AppThemeProvider.colors.onSurface,
+            colorAccent = AppThemeProvider.colors.accent
+        ),
+        firstDayIsMonday = AppThemeProvider.appPrefs.firstDayIsMonday,
+        labels = emptyList(),
+        selectDayListener = { day -> }
+    )
 }
