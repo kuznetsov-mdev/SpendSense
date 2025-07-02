@@ -1,13 +1,46 @@
 package ru.sbx.spend_sense.presentation.categories
 
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.material.Text
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetLayout
+import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import ru.sbx.spend_sense.MR
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.zIndex
+import kotlinx.coroutines.launch
+import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesListView
+import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesViewModel
+import ru.sbx.spend_sense.presentation.common.ui.atoms.FAB
+import ru.sbx.spend_sense.presentation.common.ui.atoms.RootBox
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun BoxScope.CategoriesScreen() {
-    Text(MR.string.categories, modifier = Modifier.align(Alignment.Center))
+fun BoxScope.CategoriesScreen(
+    viewModel: CategoriesViewModel
+) {
+    val sheetState = rememberModalBottomSheetState(
+        ModalBottomSheetValue.Hidden, skipHalfExpanded = true
+    )
+    val scope = rememberCoroutineScope()
+
+    ModalBottomSheetLayout(
+        sheetContent = {
+
+        },
+        sheetState = sheetState,
+        sheetBackgroundColor = Color.Transparent,
+        modifier = Modifier.zIndex(1f)
+    ) {
+        //need for getting up whole content above bottom bar
+        RootBox() {
+            CategoriesListView(viewModel = viewModel) { category ->
+
+            }
+        }
+
+        FAB { scope.launch { sheetState.show() } }
+    }
 }
