@@ -44,8 +44,8 @@ fun CategoryItem(category: Category, onClick: () -> Unit) {
                     fontSize = 18.sp,
                     color = AppThemeProvider.colors.onSurface.copy(alpha = 0.7f)
                 )
-                ColorLabel(category.colorHex)
             }
         }
+        ColorLabel(category.colorHex)
     }
 }
