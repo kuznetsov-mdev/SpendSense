@@ -12,8 +12,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import ru.sbx.spend_sense.MR
 import ru.sbx.spend_sense.presentation.categories.creation.CreateCategoryData
@@ -26,6 +29,9 @@ fun CategoryCreationView(
     isExpanded: Boolean,
     createListener: (CreateCategoryData) -> Unit
 ) {
+    val focusRequester by remember { mutableStateOf(FocusRequester()) }
+    val focusManager = LocalFocusManager.current
+
     var title by remember { mutableStateOf("") }
     var subtitle by remember { mutableStateOf("") }
     var rColor by remember { mutableFloatStateOf(0.3f) }
@@ -33,7 +39,10 @@ fun CategoryCreationView(
     var bColor by remember { mutableFloatStateOf(0.9f) }
 
     LaunchedEffect(isExpanded) {
-        if (!isExpanded) {
+        if (isExpanded) {
+            focusRequester.requestFocus()
+        } else {
+            focusRequester.captureFocus()
             title = ""
             subtitle = ""
             rColor = 0.3f
@@ -46,7 +55,9 @@ fun CategoryCreationView(
         AppTextField(
             value = title,
             placeholder = MR.string.title_category_placeholder,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .focusRequester(focusRequester)
         ) { title = it }
 
         Spacer(modifier = Modifier.height(16.dp))
