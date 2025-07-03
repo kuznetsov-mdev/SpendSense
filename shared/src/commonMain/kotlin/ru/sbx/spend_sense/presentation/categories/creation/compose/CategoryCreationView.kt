@@ -42,7 +42,7 @@ fun CategoryCreationView(
         if (isExpanded) {
             focusRequester.requestFocus()
         } else {
-            focusRequester.captureFocus()
+            focusManager.clearFocus()
             title = ""
             subtitle = ""
             rColor = 0.3f
