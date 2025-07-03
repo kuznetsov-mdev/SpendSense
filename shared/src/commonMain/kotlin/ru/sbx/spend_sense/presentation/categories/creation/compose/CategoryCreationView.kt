@@ -1,9 +1,11 @@
 package ru.sbx.spend_sense.presentation.categories.creation.compose
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -21,13 +23,24 @@ import ru.sbx.spend_sense.presentation.common.ui.atoms.BottomModalContainer
 
 @Composable
 fun CategoryCreationView(
+    isExpanded: Boolean,
     createListener: (CreateCategoryData) -> Unit
 ) {
     var title by remember { mutableStateOf("") }
     var subtitle by remember { mutableStateOf("") }
-    var rColor by remember { mutableFloatStateOf(0.5f) }
-    var gColor by remember { mutableFloatStateOf(0.5f) }
-    var bColor by remember { mutableFloatStateOf(0.5f) }
+    var rColor by remember { mutableFloatStateOf(0.3f) }
+    var gColor by remember { mutableFloatStateOf(0.6f) }
+    var bColor by remember { mutableFloatStateOf(0.9f) }
+
+    LaunchedEffect(isExpanded) {
+        if (!isExpanded) {
+            title = ""
+            subtitle = ""
+            rColor = 0.3f
+            gColor = 0.6f
+            bColor = 0.9f
+        }
+    }
 
     BottomModalContainer {
         AppTextField(
@@ -44,10 +57,14 @@ fun CategoryCreationView(
             modifier = Modifier.fillMaxWidth()
         ) { subtitle = it }
 
+        Spacer(modifier = Modifier.height(16.dp))
+
         ColorBox(rColor, gColor, bColor) {
-            ColorSlider(Color.Red, rColor) { rColor = it }
-            ColorSlider(Color.Green, gColor) { gColor = it }
-            ColorSlider(Color.Blue, bColor) { bColor = it }
+            Column {
+                ColorSelector(Color.Red, rColor) { rColor = it }
+                ColorSelector(Color.Green, gColor) { gColor = it }
+                ColorSelector(Color.Blue, bColor) { bColor = it }
+            }
         }
 
         Spacer(modifier = Modifier.height(16.dp))

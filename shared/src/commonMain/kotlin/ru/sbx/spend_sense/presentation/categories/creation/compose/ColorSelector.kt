@@ -16,24 +16,24 @@ import androidx.compose.ui.unit.dp
 import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
 
 @Composable
-fun ColorSlider(
+fun ColorSelector(
     color: Color,
     sliderValue: Float,
-    onValueChange: (Float) -> Unit
+    onValueChanged: (Float) -> Unit
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
-        Box(modifier = Modifier.size(30.dp).background(color, RoundedCornerShape(16.dp))) {
-            Spacer(modifier = Modifier.size(8.dp))
+        Box(modifier = Modifier.size(30.dp).background(color, RoundedCornerShape(16.dp)))
 
-            Slider(
-                value = sliderValue,
-                onValueChange = onValueChange,
-                colors = SliderDefaults.colors(
-                    thumbColor = AppThemeProvider.colors.accent,
-                    activeTrackColor = AppThemeProvider.colors.accent.copy(alpha = 0.8f),
-                    inactiveTickColor = AppThemeProvider.colors.onSurface
-                )
+        Spacer(modifier = Modifier.size(8.dp))
+
+        Slider(
+            value = sliderValue,
+            onValueChange = onValueChanged,
+            colors = SliderDefaults.colors(
+                thumbColor = AppThemeProvider.colors.accent,
+                activeTrackColor = AppThemeProvider.colors.accent.copy(0.8f),
+                inactiveTrackColor = AppThemeProvider.colors.onSurface
             )
-        }
+        )
     }
 }

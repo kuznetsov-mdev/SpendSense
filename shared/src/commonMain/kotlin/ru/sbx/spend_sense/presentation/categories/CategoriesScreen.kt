@@ -1,6 +1,8 @@
 package ru.sbx.spend_sense.presentation.categories
 
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetValue
@@ -9,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import kotlinx.coroutines.launch
 import ru.sbx.spend_sense.presentation.categories.creation.compose.CategoryCreationView
@@ -29,7 +32,9 @@ fun BoxScope.CategoriesScreen(
 
     ModalBottomSheetLayout(
         sheetContent = {
-            CategoryCreationView { data ->
+            CategoryCreationView(
+                isExpanded = sheetState.currentValue == ModalBottomSheetValue.Expanded
+            ) { data ->
                 scope.launch { sheetState.hide() }
                 viewModel.createCategory(data)
             }
@@ -40,11 +45,10 @@ fun BoxScope.CategoriesScreen(
     ) {
         //need for getting up whole content above bottom bar
         RootBox() {
-            CategoriesListView(viewModel = viewModel) { category ->
+            CategoriesListView(viewModel, Modifier.fillMaxSize().padding(8.dp)) { category ->
 
             }
+            FAB { scope.launch { sheetState.show() } }
         }
-
-        FAB { scope.launch { sheetState.show() } }
     }
 }
