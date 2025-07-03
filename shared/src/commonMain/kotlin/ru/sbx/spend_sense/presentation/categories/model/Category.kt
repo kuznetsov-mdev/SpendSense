@@ -1,6 +1,5 @@
 package ru.sbx.spend_sense.presentation.categories.model
 
-import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import ru.sbx.spend_sense.extentions.now
 
@@ -8,7 +7,7 @@ data class Category(
     val id: String,
     val title: String,
     val description: String,
-    val date: LocalDate,
+    val colorHex: String,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime
 ) {
@@ -17,7 +16,7 @@ data class Category(
             id = "",
             title = "NONE_CATEGORY",
             description = "",
-            date = LocalDate.now(),
+            colorHex = "",
             createdAt = LocalDateTime.now(),
             updatedAt = LocalDateTime.now(),
         )
