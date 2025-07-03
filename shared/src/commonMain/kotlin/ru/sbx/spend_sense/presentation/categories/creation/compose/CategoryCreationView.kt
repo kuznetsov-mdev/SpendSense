@@ -44,9 +44,11 @@ fun CategoryCreationView(
             modifier = Modifier.fillMaxWidth()
         ) { subtitle = it }
 
-        ColorSlider(Color.Red, rColor) { rColor = it }
-        ColorSlider(Color.Green, gColor) { gColor = it }
-        ColorSlider(Color.Blue, bColor) { bColor = it }
+        ColorBox(rColor, gColor, bColor) {
+            ColorSlider(Color.Red, rColor) { rColor = it }
+            ColorSlider(Color.Green, gColor) { gColor = it }
+            ColorSlider(Color.Blue, bColor) { bColor = it }
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
