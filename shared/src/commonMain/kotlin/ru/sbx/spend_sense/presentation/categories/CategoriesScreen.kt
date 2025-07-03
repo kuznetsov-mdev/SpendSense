@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.zIndex
 import kotlinx.coroutines.launch
+import ru.sbx.spend_sense.presentation.categories.creation.compose.CategoryCreationView
 import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesListView
 import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesViewModel
 import ru.sbx.spend_sense.presentation.common.ui.atoms.FAB
@@ -28,7 +29,10 @@ fun BoxScope.CategoriesScreen(
 
     ModalBottomSheetLayout(
         sheetContent = {
-
+            CategoryCreationView { data ->
+                scope.launch { sheetState.hide() }
+                viewModel.createCategory(data)
+            }
         },
         sheetState = sheetState,
         sheetBackgroundColor = Color.Transparent,
