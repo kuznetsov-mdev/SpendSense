@@ -9,7 +9,8 @@ class CategoriesRepository {
             List(20) { index ->
                 Category.NONE.copy(
                     id = index.toString(),
-                    title = "category $index"
+                    title = "category $index",
+                    description = "category #$index"
                 )
             }
         )
