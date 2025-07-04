@@ -1,4 +1,4 @@
-package ru.sbx.spend_sense.presentation.categories.data
+package ru.sbx.spend_sense.data
 
 import kotlinx.coroutines.flow.flow
 import ru.sbx.spend_sense.presentation.categories.model.Category
