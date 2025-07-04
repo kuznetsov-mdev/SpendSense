@@ -1,4 +1,4 @@
-package ru.sbx.spend_sense.storage
+package ru.sbx.spend_sense.data.storage
 
 import com.russhwolf.settings.Settings
 import kotlinx.coroutines.flow.MutableStateFlow
