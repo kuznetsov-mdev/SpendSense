@@ -3,9 +3,9 @@ package ru.sbx.spend_sense.presentation.events.list.compose
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
+import ru.sbx.spend_sense.data.CategoriesRepository
 import ru.sbx.spend_sense.data.EventsRepository
 import ru.sbx.spend_sense.presentation.base.BaseViewModel
-import ru.sbx.spend_sense.presentation.categories.data.CategoriesRepository
 import ru.sbx.spend_sense.presentation.categories.model.Category
 import ru.sbx.spend_sense.presentation.common.ui.calendar.model.CalendarDay
 import ru.sbx.spend_sense.presentation.common.ui.calendar.model.CalendarLabel
