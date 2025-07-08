@@ -43,7 +43,7 @@ fun RootScreen() {
 fun BoxScope.RootNavigation(selectedTab: AppTab) {
     when (selectedTab) {
         AppTab.Categories -> CategoriesScreen(getKoinInstance())
-        AppTab.Events -> EventsScreen()
+        AppTab.Events -> EventsScreen(getKoinInstance())
         AppTab.Settings -> SettingsScreen(getKoinInstance())
     }
 }
