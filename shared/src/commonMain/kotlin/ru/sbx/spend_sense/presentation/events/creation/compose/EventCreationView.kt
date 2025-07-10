@@ -67,13 +67,13 @@ fun EventCreationView(
 
         TextPairButton(
             title = MR.string.date,
-            buttonTitle = state.category.title.ifEmpty { MR.string.empty_category },
+            buttonTitle = state.date.toString()
         ) { showDateDialog = true }
 
         AppTextField(
             value = state.title,
             placeholder = MR.string.spend_to,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth()
         ) { viewModel.changeTitle(it) }
 
         AppTextField(
