@@ -8,6 +8,8 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.plus
 import kotlinx.datetime.toLocalDateTime
 import ru.sbx.spend_sense.extentions.now
+import ru.sbx.spend_sense.presentation.categories.model.Category
+import ru.sbx.spend_sense.presentation.common.ui.calendar.model.CalendarLabel
 
 data class SpendEvent(
     val id: String,
@@ -41,3 +43,16 @@ data class SpendEvent(
         }
     }
 }
+
+fun SpendEvent.toUi(category: Category) = SpendEventUi(
+    id = categoryId,
+    category = category,
+    title = title,
+    cost = cost
+)
+
+fun SpendEvent.toCalendarLabel(category: Category) = CalendarLabel(
+    id = id,
+    colorHex = category.colorHex,
+    localDate = date
+)
