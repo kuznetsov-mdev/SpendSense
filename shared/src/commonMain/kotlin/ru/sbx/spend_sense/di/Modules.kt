@@ -1,7 +1,10 @@
 package ru.sbx.spend_sense.di
 
 import org.koin.core.module.Module
+import org.koin.core.qualifier.Qualifier
+import org.koin.core.qualifier.QualifierValue
 import org.koin.dsl.module
+import org.koin.ext.getFullName
 import ru.sbx.spend_sense.data.CategoriesRepository
 import ru.sbx.spend_sense.data.EventsRepository
 import ru.sbx.spend_sense.data.storage.SettingsManager
@@ -38,9 +41,22 @@ object ViewModelsModule {
     val viewModels = module {
         single { RootViewModel(get()) }
         factory { SettingsViewModel(get(), get()) }
-        single { DatePickerViewModel() }
+        single(DatePickerSingleQualifier) { DatePickerViewModel() }
+        factory(DatePickerFactoryQualifier) { DatePickerViewModel() }
         single { CategoriesViewModel(get()) }
         single { EventsViewModel(get(), get()) }
         single { EventCreationViewModel() }
     }
+}
+
+object DatePickerSingleQualifier : Qualifier {
+    override val value: QualifierValue
+        get() = this::class.getFullName()
+
+}
+
+object DatePickerFactoryQualifier : Qualifier {
+    override val value: QualifierValue
+        get() = this::class.getFullName()
+
 }

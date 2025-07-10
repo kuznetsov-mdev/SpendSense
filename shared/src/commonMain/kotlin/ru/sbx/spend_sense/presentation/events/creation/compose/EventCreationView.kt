@@ -18,6 +18,7 @@ import androidx.compose.ui.window.Dialog
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.sbx.spend_sense.MR
+import ru.sbx.spend_sense.di.DatePickerFactoryQualifier
 import ru.sbx.spend_sense.di.getKoinInstance
 import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesListView
 import ru.sbx.spend_sense.presentation.common.ui.atoms.AppButton
@@ -105,7 +106,7 @@ fun EventCreationView(
     if (showDateDialog) {
         Dialog(onDismissRequest = { showDateDialog = false }) {
             DatePickerView(
-                viewModel = getKoinInstance(),
+                viewModel = getKoinInstance(DatePickerFactoryQualifier),
                 colors = CalendarColors.default.copy(
                     colorAccent = AppThemeProvider.colors.accent,
                     colorSurface = AppThemeProvider.colors.surface,

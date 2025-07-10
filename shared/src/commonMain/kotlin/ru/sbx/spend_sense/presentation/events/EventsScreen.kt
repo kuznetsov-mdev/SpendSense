@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.zIndex
 import kotlinx.coroutines.launch
+import ru.sbx.spend_sense.di.DatePickerSingleQualifier
 import ru.sbx.spend_sense.di.getKoinInstance
 import ru.sbx.spend_sense.presentation.common.ui.atoms.FAB
 import ru.sbx.spend_sense.presentation.common.ui.atoms.RootBox
@@ -54,7 +55,7 @@ fun BoxScope.EventsScreen(
         RootBox {
             Column {
                 DatePickerView(
-                    viewModel = getKoinInstance(),
+                    viewModel = getKoinInstance(DatePickerSingleQualifier),
                     colors = CalendarColors.default.copy(
                         colorSurface = AppThemeProvider.colors.surface,
                         colorOnSurface = AppThemeProvider.colors.onSurface,

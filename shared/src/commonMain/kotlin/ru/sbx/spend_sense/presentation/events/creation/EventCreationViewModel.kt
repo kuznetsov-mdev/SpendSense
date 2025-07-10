@@ -13,7 +13,7 @@ class EventCreationViewModel() : BaseViewModel<CreationContract.State, CreationC
 
     override fun initialState() = CreationContract.State.NONE
 
-    fun selectDate(data: LocalDate?) = updateState { copy(date = date ?: LocalDate.now()) }
+    fun selectDate(date: LocalDate?) = updateState { copy(date = date ?: LocalDate.now()) }
     fun resetState() = updateState { CreationContract.State.NONE }
     fun changeTitle(title: String) = updateState { copy(title = title) }
     fun changeCost(cost: String) = updateState { copy(cost = cost.toDoubleOrNull() ?: this.cost) }
