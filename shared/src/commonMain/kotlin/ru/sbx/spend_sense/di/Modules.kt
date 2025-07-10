@@ -8,6 +8,7 @@ import ru.sbx.spend_sense.data.storage.SettingsManager
 import ru.sbx.spend_sense.platform.DeviceInfo
 import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesViewModel
 import ru.sbx.spend_sense.presentation.common.ui.calendar.DatePickerViewModel
+import ru.sbx.spend_sense.presentation.events.creation.EventCreationViewModel
 import ru.sbx.spend_sense.presentation.events.list.compose.EventsViewModel
 import ru.sbx.spend_sense.presentation.root.RootViewModel
 import ru.sbx.spend_sense.presentation.settings.SettingsViewModel
@@ -40,5 +41,6 @@ object ViewModelsModule {
         single { DatePickerViewModel() }
         single { CategoriesViewModel(get()) }
         single { EventsViewModel(get(), get()) }
+        single { EventCreationViewModel() }
     }
 }

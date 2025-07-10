@@ -22,6 +22,7 @@ import ru.sbx.spend_sense.presentation.common.ui.atoms.RootBox
 import ru.sbx.spend_sense.presentation.common.ui.calendar.compose.CalendarColors
 import ru.sbx.spend_sense.presentation.common.ui.calendar.compose.DatePickerView
 import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
+import ru.sbx.spend_sense.presentation.events.creation.compose.EventCreationView
 import ru.sbx.spend_sense.presentation.events.list.compose.EventsViewModel
 import ru.sbx.spend_sense.presentation.events.list.compose.SpendEventItem
 
@@ -37,7 +38,14 @@ fun BoxScope.EventsScreen(
 
     ModalBottomSheetLayout(
         sheetContent = {
-
+            EventCreationView(
+                isExpand = sheetState.currentValue == ModalBottomSheetValue.Expanded,
+                selectedDay = state.selectedDay,
+                viewModel = getKoinInstance()
+            ) { newEvent ->
+                viewModel.createEvent(newEvent)
+                scope.launch { sheetState.hide() }
+            }
         },
         sheetState = sheetState,
         sheetBackgroundColor = Color.Transparent,

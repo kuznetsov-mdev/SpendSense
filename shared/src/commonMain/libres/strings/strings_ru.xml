@@ -8,4 +8,8 @@
     <string name="subtitle_category_placeholder">Описание категории</string>
     <string name="save">Сохранить</string>
     <string name="empty_category">Без категории</string>
+    <string name="category">Категория</string>
+    <string name="date">Без Дата</string>
+    <string name="spend_to">Потрачено на</string>
+    <string name="cost">Стоимость</string>
 </resources>

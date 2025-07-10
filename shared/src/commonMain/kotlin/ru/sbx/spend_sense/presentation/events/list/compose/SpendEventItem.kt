@@ -31,15 +31,17 @@ fun SpendEventItem(
 
     Row(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
+            .padding(horizontal = 8.dp)
+            .padding(bottom = 8.dp)
             .background(
                 AppThemeProvider.colors.surface.copy(0.8f),
                 RoundedCornerShape(8.dp)
-            ),
+            )
+            .padding(8.dp)
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Column {
+        Column(modifier = Modifier.weight(1f)) {
             if (eventUi.title.isNotBlank()) {
                 Text(
                     text = eventUi.title,
