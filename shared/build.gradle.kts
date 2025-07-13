@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.cocoapods)
     alias(libs.plugins.libres)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -34,17 +35,18 @@ kotlin {
     sourceSets {
         val commonMain by getting
         val androidMain by getting
-        val iosMain by creating {
+        val iosArm64Main by getting
+        val iosX64Main by getting
+        val iosSimulatorArm64Main by getting
+        iosMain {
             dependsOn(commonMain)
-        }
-        val iosX64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosArm64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosSimulatorArm64Main by getting {
-            dependsOn(iosMain)
+            iosArm64Main.dependsOn(this)
+            iosX64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+
+            dependencies {
+                implementation(libs.sqldelight.native.driver)
+            }
         }
 
         //only common for all platform libs
@@ -69,11 +71,26 @@ kotlin {
 
                 //Datetime
                 implementation(libs.datetime)
+
+                //Sqldelight
+                implementation(libs.sqldelight.coroutines.extensions)
             }
         }
 
         androidMain {
             dependsOn(commonMain)
+
+            dependencies {
+                implementation(libs.sqldelight.android.driver)
+            }
+        }
+
+        jvmMain {
+            dependsOn(commonMain)
+            dependencies {
+                api(compose.desktop.currentOs)
+                implementation(libs.sqldelight.desktop.driver)
+            }
         }
     }
 }
@@ -90,4 +107,13 @@ android {
 
 libres {
     generatedClassName = "MR" // "Res" by default
+}
+
+sqldelight {
+    databases {
+        create("AppDb") {
+            packageName.set("ru.sbx.spend_sense.db")
+            schemaOutputDirectory.set(file("src/commonMain/sqldelight/db"))
+        }
+    }
 }
