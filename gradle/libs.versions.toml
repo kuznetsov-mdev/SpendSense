@@ -7,6 +7,7 @@ libres = "1.2.2"
 multiplatform-settings = "1.0.0"
 koin = "3.4.0"
 kotlinx-datetime = "0.4.0"
+sqldelight = "2.0.0"
 
 [libraries]
 androidx-activity-compose = {module = "androidx.activity:activity-compose", version.ref = "activity-compose"}
@@ -14,6 +15,10 @@ libres-compose = { module = "io.github.skeptick.libres:libres-compose", version.
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+sqldelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
+sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
+sqldelight-desktop-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 
 [plugins]
 compose = {id = "org.jetbrains.compose", version.ref = "compose"}
@@ -23,3 +28,4 @@ android-library = {id = "com.android.library", version.ref = "agp"}
 kotlin-android = {id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
 cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 libres = { id = "io.github.skeptick.libres", version.ref = "libres" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
