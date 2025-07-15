@@ -1,0 +1,27 @@
+CREATE TABLE EventDb(
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT,
+    categoryId TEXT NOT NULL,
+    cost REAL,
+    date TEXT AS LocalData NOT NULL,
+    createdAt TEXT AS LocalDataTime NOT NULL,
+    updatedAt TEXT AS LocalDataTime NOT NULL
+);
+
+get:
+SELECT * FROM EventDb WHERE id = :id LIMIT 1;
+
+getAll:
+SELECT * FROM EventDb;
+
+getByIds:
+SELECT * FROM EventDb WHERE id IN :ids;
+
+insert:
+INSERT OR REPLACE INTO EventDb VALUES ?;
+
+delete:
+DELETE FROM EventDb WHERE id = :id;
+
+clear:
+DELETE FROM EventDb;
