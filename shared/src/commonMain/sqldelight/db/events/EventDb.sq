@@ -1,3 +1,6 @@
+import kotlinx.datetime.LocalDate;
+import kotlinx.datetime.LocalDateTime;
+
 CREATE TABLE EventDb(
     id TEXT NOT NULL PRIMARY KEY,
     title TEXT,
