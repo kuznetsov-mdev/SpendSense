@@ -11,10 +11,11 @@ import ru.sbx.spend_sense.presentation.events.model.toDb
 import ru.sbx.spend_sense.presentation.events.model.toEntity
 import kotlin.coroutines.CoroutineContext
 
-data class EventDao(
+class SpendEventDao(
     private val db: AppDb,
     private val coroutineContext: CoroutineContext
 ) {
+
     private val eventsQueries = db.eventDbQueries
 
     fun getAll(): List<SpendEvent> =
@@ -30,11 +31,11 @@ data class EventDao(
             .mapToList(coroutineContext)
             .map { events -> events.map(EventDb::toEntity) }
 
-    suspend fun insert(events: SpendEvent) = eventsQueries.insert(events.toDb())
+    suspend fun insert(event: SpendEvent) = eventsQueries.insert(event.toDb())
 
-    suspend fun insertAll(categories: List<SpendEvent>) =
+    suspend fun insertAll(events: List<SpendEvent>) =
         eventsQueries.transaction {
-            categories.forEach { eventsQueries.insert(it.toDb()) }
+            events.forEach { eventsQueries.insert(it.toDb()) }
         }
 
     suspend fun delete(id: String) = eventsQueries.delete(id)

@@ -10,7 +10,7 @@ import org.koin.ext.getFullName
 import ru.sbx.spend_sense.data.CategoriesRepository
 import ru.sbx.spend_sense.data.EventsRepository
 import ru.sbx.spend_sense.data.model.dao.CategoryDao
-import ru.sbx.spend_sense.data.model.dao.EventDao
+import ru.sbx.spend_sense.data.model.dao.SpendEventDao
 import ru.sbx.spend_sense.data.storage.DbAdapters
 import ru.sbx.spend_sense.data.storage.SettingsManager
 import ru.sbx.spend_sense.db.AppDb
@@ -35,18 +35,14 @@ object StorageModule {
     val settings = module {
         single { SettingsManager(get()) }
     }
-
     val db = module {
         single {
-            AppDb(get(), DbAdapters.categoryDbAdapter, DbAdapters.eventAdapter)
+            AppDb(get(), DbAdapters.categoryDbAdapter, DbAdapters.eventDbAdapter)
         }
     }
-
     val dao = module {
-        single {
-            CategoryDao(get(), get())
-            EventDao(get(), get())
-        }
+        single { CategoryDao(get(), get()) }
+        single { SpendEventDao(get(), get()) }
     }
 }
 
@@ -63,20 +59,18 @@ object ViewModelsModule {
         factory { SettingsViewModel(get(), get()) }
         single(DatePickerSingleQualifier) { DatePickerViewModel() }
         factory(DatePickerFactoryQualifier) { DatePickerViewModel() }
+        factory { EventsViewModel(get(), get()) }
         single { CategoriesViewModel(get()) }
-        single { EventsViewModel(get(), get()) }
-        single { EventCreationViewModel() }
+        factory { EventCreationViewModel() }
     }
 }
 
 object DatePickerSingleQualifier : Qualifier {
     override val value: QualifierValue
         get() = this::class.getFullName()
-
 }
 
 object DatePickerFactoryQualifier : Qualifier {
     override val value: QualifierValue
         get() = this::class.getFullName()
-
 }

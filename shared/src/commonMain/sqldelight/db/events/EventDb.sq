@@ -1,14 +1,14 @@
 import kotlinx.datetime.LocalDate;
 import kotlinx.datetime.LocalDateTime;
 
-CREATE TABLE EventDb(
-    id TEXT NOT NULL PRIMARY KEY,
-    title TEXT,
-    categoryId TEXT NOT NULL,
-    cost REAL,
-    date TEXT AS LocalData NOT NULL,
-    createdAt TEXT AS LocalDataTime NOT NULL,
-    updatedAt TEXT AS LocalDataTime NOT NULL
+CREATE TABLE EventDb (
+id TEXT NOT NULL PRIMARY KEY,
+title TEXT,
+categoryId TEXT NOT NULL,
+cost REAL,
+date TEXT AS LocalDate NOT NULL,
+createdAt TEXT AS LocalDateTime NOT NULL,
+updatedAt TEXT AS LocalDateTime NOT NULL
 );
 
 get:

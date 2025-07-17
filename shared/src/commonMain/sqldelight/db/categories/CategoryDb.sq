@@ -1,16 +1,16 @@
 import kotlinx.datetime.LocalDateTime;
 
 CREATE TABLE CategoryDb (
-    id TEXT NOT NULL PRIMARY KEY,
-    title TEXT,
-    description TEXT,
-    createdAt TEXT AS LocalDateTime NOT NULL,
-    updatedAt TEXT AS LocalDateTime NOT NULL,
-    colorHex TEXT NOT NULL
+id TEXT NOT NULL PRIMARY KEY,
+title TEXT,
+description TEXT,
+createdAt TEXT AS LocalDateTime NOT NULL,
+updatedAt TEXT AS LocalDateTime NOT NULL,
+colorHex TEXT NOT NULL
 );
 
 get:
-SELECT * FROM CategoryDb WHERE id =: id LIMIT 1;
+SELECT * FROM CategoryDb WHERE id = :id LIMIT 1;
 
 getAll:
 SELECT * FROM CategoryDb;
