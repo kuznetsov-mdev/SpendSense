@@ -16,6 +16,7 @@ class EventCreationViewModel() : BaseViewModel<CreationContract.State, CreationC
     fun selectDate(date: LocalDate?) = updateState { copy(date = date ?: LocalDate.now()) }
     fun resetState() = updateState { CreationContract.State.NONE }
     fun changeTitle(title: String) = updateState { copy(title = title) }
+    fun changeNote(note: String) = updateState { copy(note = note) }
     fun changeCost(cost: String) = updateState { copy(cost = cost.toDoubleOrNull() ?: this.cost) }
     fun selectCategory(category: Category) = updateState { copy(category = category) }
 
@@ -29,7 +30,8 @@ class EventCreationViewModel() : BaseViewModel<CreationContract.State, CreationC
                 date = date,
                 cost = cost,
                 createdAt = now,
-                updatedAt = now
+                updatedAt = now,
+                note = note
             )
         }
         resetState()

@@ -20,6 +20,8 @@ fun initKoin(appModule: Module = module { }) = startKoin {
         platformModule,
         appModule,
         ViewModelsModule.viewModels,
-        RepositoriesModule.repositories
+        RepositoriesModule.repositories,
+        StorageModule.db,
+        StorageModule.dao
     )
 }

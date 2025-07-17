@@ -1,20 +1,12 @@
 package ru.sbx.spend_sense.data
 
-import kotlinx.coroutines.flow.flow
+import ru.sbx.spend_sense.data.model.dao.CategoryDao
 import ru.sbx.spend_sense.presentation.categories.model.Category
 
-class CategoriesRepository {
-    fun getAllFlow() = flow {
-        emit(
-            List(20) { index ->
-                Category.NONE.copy(
-                    id = index.toString(),
-                    title = "category $index",
-                    description = "category #$index"
-                )
-            }
-        )
-    }
+class CategoriesRepository(
+    private val dao: CategoryDao
+) {
+    fun getAllFlow() = dao.getAllFlow()
 
-    suspend fun createCategory(category: Category) = Unit
+    suspend fun createCategory(category: Category) = dao.insert(category)
 }

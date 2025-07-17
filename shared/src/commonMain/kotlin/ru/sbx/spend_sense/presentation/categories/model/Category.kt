@@ -1,5 +1,6 @@
 package ru.sbx.spend_sense.presentation.categories.model
 
+import db.categories.CategoryDb
 import kotlinx.datetime.LocalDateTime
 import ru.sbx.spend_sense.extentions.now
 
@@ -22,3 +23,21 @@ data class Category(
         )
     }
 }
+
+fun CategoryDb.toEntity() = Category(
+    id = id,
+    title = title.orEmpty(),
+    description = description.orEmpty(),
+    colorHex = colorHex,
+    createdAt = createdAt,
+    updatedAt = updatedAt
+)
+
+fun Category.toDb() = CategoryDb(
+    id = id,
+    title = title,
+    description = description,
+    colorHex = colorHex,
+    createdAt = createdAt,
+    updatedAt = updatedAt
+)

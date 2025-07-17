@@ -1,10 +1,12 @@
 package ru.sbx.spend_sense.data
 
-import kotlinx.coroutines.flow.flow
+import ru.sbx.spend_sense.data.model.dao.SpendEventDao
 import ru.sbx.spend_sense.presentation.events.model.SpendEvent
 
-class EventsRepository {
-    fun getAllFlow() = flow { emit(SpendEvent.getStubs()) }
+class EventsRepository(
+    private val dao: SpendEventDao
+) {
+    fun getAllFlow() = dao.getAllFlow()
 
-    fun create(spendEvent: SpendEvent) = Unit
+    suspend fun create(spendEvent: SpendEvent) = dao.insertAll(listOf(spendEvent))
 }
