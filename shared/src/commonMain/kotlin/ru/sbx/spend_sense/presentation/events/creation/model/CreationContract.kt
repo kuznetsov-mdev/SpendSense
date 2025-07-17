@@ -12,14 +12,16 @@ class CreationContract {
         val title: String,
         val category: Category,
         val date: LocalDate,
-        val cost: Double
+        val cost: Double,
+        val note: String
     ) : BaseViewState {
         companion object {
             val NONE = State(
                 title = "",
                 category = Category.NONE,
                 date = LocalDate.now(),
-                cost = 0.0
+                cost = 0.0,
+                note = ""
             )
         }
     }

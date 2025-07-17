@@ -14,7 +14,8 @@ data class SpendEvent(
     val date: LocalDate,
     val cost: Double,
     val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime
+    val updatedAt: LocalDateTime,
+    val note: String
 ) {
     companion object {
         val NONE = SpendEvent(
@@ -25,6 +26,7 @@ data class SpendEvent(
             date = LocalDate.now(),
             createdAt = LocalDateTime.now(),
             updatedAt = LocalDateTime.now(),
+            note = ""
         )
     }
 }
@@ -50,6 +52,7 @@ fun SpendEvent.toDb() = EventDb(
     cost = cost,
     createdAt = createdAt,
     updatedAt = updatedAt,
+    note = note
 )
 
 fun EventDb.toEntity() = SpendEvent(
@@ -60,4 +63,5 @@ fun EventDb.toEntity() = SpendEvent(
     cost = cost ?: 0.0,
     createdAt = createdAt,
     updatedAt = updatedAt,
+    note = note.orEmpty()
 )
