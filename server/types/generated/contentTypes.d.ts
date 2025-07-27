@@ -381,7 +381,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     singularName: 'category';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     colorHex: Schema.Attribute.String;
@@ -415,7 +415,7 @@ export interface ApiSpendEventSpendEvent extends Struct.CollectionTypeSchema {
     singularName: 'spend-event';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     categoryId: Schema.Attribute.String;
