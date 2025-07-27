@@ -403,7 +403,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     updatedAtLocal: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    userId: Schema.Attribute.String;
+    userId: Schema.Attribute.BigInteger;
   };
 }
 
@@ -439,7 +439,7 @@ export interface ApiSpendEventSpendEvent extends Struct.CollectionTypeSchema {
     updatedAtLocal: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    userId: Schema.Attribute.String;
+    userId: Schema.Attribute.BigInteger;
   };
 }
 

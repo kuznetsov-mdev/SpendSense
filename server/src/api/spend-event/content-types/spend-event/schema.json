@@ -14,9 +14,6 @@
     "idLocal": {
       "type": "string"
     },
-    "userId": {
-      "type": "string"
-    },
     "categoryId": {
       "type": "string"
     },
@@ -37,6 +34,9 @@
     },
     "updatedAtLocal": {
       "type": "datetime"
+    },
+    "userId": {
+      "type": "biginteger"
     }
   }
 }
