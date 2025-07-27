@@ -8,7 +8,11 @@ export default factories.createCoreController('api::category.category',
   ({ strapi }) =>  ({
     //default
     async find(ctx) {
-      return null;
+      return await strapi.documents('api::category.category').findMany({
+        filters: {
+          userId: ctx.state.user.id
+        }
+      })
     },
 
     //custom
