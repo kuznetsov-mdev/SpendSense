@@ -24,7 +24,8 @@ export default factories.createCoreController('api::category.category',
     async create(){
       const ctx = strapi.requestContext.get();
       const newCategory = await strapi.service('api::category.category').create()
-      ctx.body = newCategory
+      const sanCategory = await this.sanitizeOutput(newCategory, ctx)
+      ctx.body = sanCategory
     }
   })
 );
