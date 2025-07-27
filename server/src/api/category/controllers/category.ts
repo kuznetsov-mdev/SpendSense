@@ -15,16 +15,14 @@ export default factories.createCoreController('api::category.category',
       })
     },
 
-    async create(){
-      const ctx = strapi.requestContext.get();
+    async create(ctx){
       const newCategory = await strapi.service('api::category.category').create()
       const sanCategory = await this.sanitizeOutput(newCategory, ctx)
       ctx.body = sanCategory
     },
 
     //custom
-    async sync() {
-        const ctx = strapi.requestContext.get();
+    async sync(ctx) {
         return await strapi.service('api::category.category').sync(ctx)
     }
     
