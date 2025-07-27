@@ -12,8 +12,15 @@ export default factories.createCoreController('api::category.category',
     },
 
     //custom
-    async sync(ctx) {
+    async sync() {
+        const ctx = strapi.requestContext.get();
         ctx.body = "data was sync"
+    }, 
+
+    async create(){
+      const ctx = strapi.requestContext.get();
+      const newCategory = await strapi.service('api::category.category').create()
+      ctx.body = newCategory
     }
   })
 );
