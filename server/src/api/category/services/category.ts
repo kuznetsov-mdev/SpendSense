@@ -8,16 +8,15 @@ import { factories } from '@strapi/strapi';
 export default factories.createCoreService('api::category.category', 
     ({ strapi }) =>  ({
         //custom
-        async sync(state, request) {
-            const user = state.user
-            const { body } = request
-            const type = 'api::category.category'
+        async sync(params) {
+            const { userId, categories } = params;
+            const type = 'api::category.category';
 
             // 1. get all user's categories from DB
             const categoriesFromDb = await strapi.db.query(type)
                 .findMany({
                     filters: {
-                        userId: user.id
+                        userId: userId
                     }
                 })
 
@@ -28,13 +27,10 @@ export default factories.createCoreService('api::category.category',
 
             // 3. filter categories that already exist in DB with later creation date
             //add user id to each category before save it into DB
-            const categoriesFromClient = body.filter( category =>
+            const categoriesFromClient = categories.filter( category =>
                 dictCategoriesFromDb[category.idLocal] ?
                 dictCategoriesFromDb[category.idLocal].updatedAtLocal < category.updatedAtLocal : true
-            ).map(category => {
-                category.userId = user.id
-                return category
-            })
+            )
 
             // 4. separate categories to two groups 1st - for adding, 2nd - for updating
             const categoriesToCreate = categoriesFromClient.filter (category =>
@@ -66,7 +62,7 @@ export default factories.createCoreService('api::category.category',
             }
 
             // 6. return to client categories which need to update on client (They are absent or updated later)
-            const dictCategoriesFromClient = Object.fromEntries(body.map(c => [c.idLocal, c]))
+            const dictCategoriesFromClient = Object.fromEntries(categories.map(c => [c.idLocal, c]))
             
             return categoriesFromDb
                 .filter(category => dictCategoriesFromClient[category.idLocal] ?
@@ -81,7 +77,6 @@ export default factories.createCoreService('api::category.category',
                 throw new Error('Missing userId in data');
             }
 
-            // Вставка записи через db.query (без entityService)
             const created = await strapi.db.query('api::category.category').create({
                 data,
             });

@@ -37,9 +37,12 @@ export default factories.createCoreController('api::category.category',
 
     //custom
     async sync(ctx) {
+      const userId = ctx.state.user.id;
+      const categories = ctx.request.body;
+    
       return await strapi
         .service('api::category.category')
-        .sync(ctx.state, ctx.request)
+        .sync({ userId, categories });
     }
   })
 );
