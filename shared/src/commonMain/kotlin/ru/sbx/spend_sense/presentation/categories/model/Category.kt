@@ -2,6 +2,7 @@ package ru.sbx.spend_sense.presentation.categories.model
 
 import db.categories.CategoryDb
 import kotlinx.datetime.LocalDateTime
+import ru.sbx.spend_sense.data.network.categories.CategoryApi
 import ru.sbx.spend_sense.extentions.now
 
 data class Category(
@@ -40,4 +41,22 @@ fun Category.toDb() = CategoryDb(
     colorHex = colorHex,
     createdAt = createdAt,
     updatedAt = updatedAt
+)
+
+fun Category.toApi() = CategoryApi(
+    id = id,
+    title = title,
+    description = description,
+    colorHex = colorHex,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+)
+
+fun CategoryApi.toEntity() = Category(
+    id = id.orEmpty(),
+    title = title.orEmpty(),
+    description = description.orEmpty(),
+    colorHex = colorHex.orEmpty(),
+    createdAt = createdAt ?: LocalDateTime.now(),
+    updatedAt = updatedAt ?: LocalDateTime.now()
 )
