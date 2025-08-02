@@ -1,4 +1,4 @@
-package ru.sbx.spend_sense.data.model.dao
+package ru.sbx.spend_sense.data.storage.dao
 
 import app.cash.sqldelight.coroutines.asFlow
 import app.cash.sqldelight.coroutines.mapToList

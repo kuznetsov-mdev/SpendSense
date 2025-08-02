@@ -1,6 +1,6 @@
 package ru.sbx.spend_sense.data
 
-import ru.sbx.spend_sense.data.model.dao.SpendEventDao
+import ru.sbx.spend_sense.data.storage.dao.SpendEventDao
 import ru.sbx.spend_sense.presentation.events.model.SpendEvent
 
 class EventsRepository(

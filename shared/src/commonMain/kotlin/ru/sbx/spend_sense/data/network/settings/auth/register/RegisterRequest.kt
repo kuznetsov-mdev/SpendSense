@@ -1,4 +1,4 @@
-package ru.sbx.spend_sense.presentation.settings.auth.register.model
+package ru.sbx.spend_sense.data.network.settings.auth.register
 
 import kotlinx.serialization.Serializable
 

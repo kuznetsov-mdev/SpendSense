@@ -1,6 +1,6 @@
 package ru.sbx.spend_sense.data
 
-import ru.sbx.spend_sense.data.model.dao.CategoryDao
+import ru.sbx.spend_sense.data.storage.dao.CategoryDao
 import ru.sbx.spend_sense.presentation.categories.model.Category
 
 class CategoriesRepository(

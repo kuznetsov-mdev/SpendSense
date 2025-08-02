@@ -9,10 +9,10 @@ import org.koin.dsl.module
 import org.koin.ext.getFullName
 import ru.sbx.spend_sense.data.CategoriesRepository
 import ru.sbx.spend_sense.data.EventsRepository
-import ru.sbx.spend_sense.data.model.dao.CategoryDao
-import ru.sbx.spend_sense.data.model.dao.SpendEventDao
 import ru.sbx.spend_sense.data.storage.DbAdapters
 import ru.sbx.spend_sense.data.storage.SettingsManager
+import ru.sbx.spend_sense.data.storage.dao.CategoryDao
+import ru.sbx.spend_sense.data.storage.dao.SpendEventDao
 import ru.sbx.spend_sense.db.AppDb
 import ru.sbx.spend_sense.platform.DeviceInfo
 import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesViewModel
