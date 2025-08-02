@@ -9,6 +9,7 @@ koin = "3.4.0"
 kotlinx-datetime = "0.4.0"
 sqldelight = "2.0.0"
 ktor = "2.3.6"
+kotlinx-serialization = "1.6.2"
 
 [libraries]
 androidx-activity-compose = {module = "androidx.activity:activity-compose", version.ref = "activity-compose"}
@@ -33,6 +34,8 @@ ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "k
 ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+#serialization
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 
 [plugins]
 compose = {id = "org.jetbrains.compose", version.ref = "compose"}
@@ -43,3 +46,4 @@ kotlin-android = {id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
 cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 libres = { id = "io.github.skeptick.libres", version.ref = "libres" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
