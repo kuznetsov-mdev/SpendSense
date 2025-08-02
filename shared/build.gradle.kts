@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.cocoapods)
     alias(libs.plugins.libres)
     alias(libs.plugins.sqldelight)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -35,19 +36,6 @@ kotlin {
     sourceSets {
         val commonMain by getting
         val androidMain by getting
-        val iosArm64Main by getting
-        val iosX64Main by getting
-        val iosSimulatorArm64Main by getting
-        iosMain {
-            dependsOn(commonMain)
-            iosArm64Main.dependsOn(this)
-            iosX64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-
-            dependencies {
-                implementation(libs.sqldelight.native.driver)
-            }
-        }
 
         //only common for all platform libs
         commonMain {
@@ -74,6 +62,17 @@ kotlin {
 
                 //Sqldelight
                 implementation(libs.sqldelight.coroutines.extensions)
+
+                //Network
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.cio)
+                implementation(libs.ktor.client.logging)
+                implementation(libs.ktor.client.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.kotlinx.serialization.core)
+
+                //Logs
+                api(libs.napier)
             }
         }
 
@@ -82,6 +81,7 @@ kotlin {
 
             dependencies {
                 implementation(libs.sqldelight.android.driver)
+                implementation(libs.ktor.client.android)
             }
         }
 
@@ -90,6 +90,21 @@ kotlin {
             dependencies {
                 api(compose.desktop.currentOs)
                 implementation(libs.sqldelight.desktop.driver)
+            }
+        }
+
+        val iosArm64Main by getting
+        val iosX64Main by getting
+        val iosSimulatorArm64Main by getting
+        iosMain {
+            dependsOn(commonMain)
+            iosArm64Main.dependsOn(this)
+            iosX64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+
+            dependencies {
+                implementation(libs.sqldelight.native.driver)
+                implementation(libs.ktor.client.ios)
             }
         }
     }
