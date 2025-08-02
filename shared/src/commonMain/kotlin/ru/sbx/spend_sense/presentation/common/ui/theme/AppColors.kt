@@ -4,18 +4,18 @@ import androidx.compose.ui.graphics.Color
 
 data class AppColors(
     val accent: Color,
-    val surface: Color,
-    val onSurface: Color,
     val background: Color,
-    val onBackground: Color
+    val surface: Color,
+    val onBackground: Color,
+    val onSurface: Color
 )
 
 val lightPalette = AppColors(
-    accent = Color(0xFFFFF59D),
-    background = Color(0xFFD7FFEA),
-    onBackground = Color(0xFF001329),
-    surface = Color(0xFF8DC2A6),
-    onSurface = Color(0xFF133050),
+    accent = Color(0xFFa3592f),
+    background = Color(0xFFfcf5e7),
+    onBackground = Color(0xFF351904),
+    surface = Color(0xFFfade9d),
+    onSurface = Color(0xFF5d4b37),
 )
 
 val darkPalette = AppColors(
