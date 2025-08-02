@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_timestamps_datetimes",
+  "info": {
+    "displayName": "Datetime",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "createdAtLocal": {
+      "type": "datetime"
+    },
+    "updatedAtLocal": {
+      "type": "datetime"
+    }
+  },
+  "config": {}
+}
