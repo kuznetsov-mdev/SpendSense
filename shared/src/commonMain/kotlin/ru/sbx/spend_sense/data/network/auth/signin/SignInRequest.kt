@@ -1,4 +1,4 @@
-package ru.sbx.spend_sense.data.network.settings.auth.signin
+package ru.sbx.spend_sense.data.network.auth.signin
 
 import kotlinx.serialization.Serializable
 

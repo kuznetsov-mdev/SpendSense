@@ -1,4 +1,4 @@
-package ru.sbx.spend_sense.data.network.settings
+package ru.sbx.spend_sense.data.network
 
 import io.ktor.client.HttpClient
 import io.ktor.client.request.bearerAuth
@@ -6,10 +6,10 @@ import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
+import ru.sbx.spend_sense.data.network.auth.register.RegisterRequest
+import ru.sbx.spend_sense.data.network.auth.signin.SignInRequest
 import ru.sbx.spend_sense.data.network.categories.CategoryApi
 import ru.sbx.spend_sense.data.network.events.SpendEventApi
-import ru.sbx.spend_sense.data.network.settings.auth.register.RegisterRequest
-import ru.sbx.spend_sense.data.network.settings.auth.signin.SignInRequest
 import ru.sbx.spend_sense.data.storage.SettingsManager
 
 class AppApi(

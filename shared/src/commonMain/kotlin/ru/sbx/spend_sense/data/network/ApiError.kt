@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ApiErrorWrapper(
-    val error: ApiError
+    val error: ApiError?
 )
 
 @Serializable
