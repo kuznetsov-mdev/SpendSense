@@ -59,5 +59,7 @@ fun BoxScope.SettingsScreen(
                 )
             )
         }
+
+        DeviceInfoView(state.info)
     }
 }
