@@ -9,7 +9,10 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.modules.SerializersModule
 import org.koin.core.module.Module
 import org.koin.core.qualifier.Qualifier
 import org.koin.core.qualifier.QualifierValue
@@ -18,6 +21,8 @@ import org.koin.ext.getFullName
 import ru.sbx.spend_sense.data.CategoriesRepository
 import ru.sbx.spend_sense.data.EventsRepository
 import ru.sbx.spend_sense.data.network.AppApi
+import ru.sbx.spend_sense.data.network.DateSerializer
+import ru.sbx.spend_sense.data.network.DateTimeSerializer
 import ru.sbx.spend_sense.data.storage.DbAdapters
 import ru.sbx.spend_sense.data.storage.SettingsManager
 import ru.sbx.spend_sense.data.storage.dao.CategoryDao
@@ -52,6 +57,10 @@ object NetworkModule {
                 ignoreUnknownKeys = true //
                 explicitNulls = false // null won't be serialized
                 prettyPrint = true
+                serializersModule = SerializersModule { //Bind types with their custom serializers
+                    contextual(LocalDateTime::class, DateTimeSerializer)
+                    contextual(LocalDate::class, DateSerializer)
+                }
             }
         }
     }
