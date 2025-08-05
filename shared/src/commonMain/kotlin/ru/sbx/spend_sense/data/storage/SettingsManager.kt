@@ -9,7 +9,7 @@ class SettingsManager(private val settings: Settings) {
     private val THEME_KEY = "THEME_KEY"
     private val TOKEN_KEY = "TOKEN_KEY"
     private val EMAIL_KEY = "EMAIL_KEY"
-    val serverUrl = "http:// 192.168.0.149:1337"
+    val serverUrl = "http://192.168.0.149:1337"
 
     private val _isDarkThemeFlow = MutableStateFlow(isDarkTheme)
     val isDarkThemFlow = _isDarkThemeFlow.asStateFlow()
