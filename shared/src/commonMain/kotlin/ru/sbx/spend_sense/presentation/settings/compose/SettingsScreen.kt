@@ -7,10 +7,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Checkbox
-import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Text
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -50,12 +49,13 @@ fun BoxScope.SettingsScreen(
                 MR.string.dark_theme, modifier = Modifier.weight(1f),
                 color = AppThemeProvider.colors.onSurface
             )
-            Checkbox(
+            Switch(
                 state.isDarkTheme,
                 onCheckedChange = { viewModel.switchTheme(it) },
-                colors = CheckboxDefaults.colors(
-                    checkedColor = AppThemeProvider.colors.accent,
-                    uncheckedColor = AppThemeProvider.colors.onSurface
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = AppThemeProvider.colors.accent,
+                    uncheckedTrackColor = AppThemeProvider.colors.onSurface,
+                    checkedTrackColor = AppThemeProvider.colors.accent.copy(0.5f)
                 )
             )
         }
