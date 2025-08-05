@@ -19,7 +19,11 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import ru.sbx.spend_sense.MR
+import ru.sbx.spend_sense.di.getKoinInstance
+import ru.sbx.spend_sense.presentation.auth.register.RegisterDialog
+import ru.sbx.spend_sense.presentation.auth.signin.SignInDialog
 import ru.sbx.spend_sense.presentation.common.ui.atoms.AppButton
 import ru.sbx.spend_sense.presentation.common.ui.atoms.AppCard
 import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
@@ -62,6 +66,15 @@ fun AuthView(successListener: () -> Unit) {
         Dialog(onDismissRequest = { showRegisterDialog = false }) {
             RegisterDialog(getKoinInstance()) {
                 showRegisterDialog = false
+                successListener()
+            }
+        }
+    }
+
+    if (showSignInDialog) {
+        Dialog(onDismissRequest = { showSignInDialog = false }) {
+            SignInDialog(getKoinInstance()) {
+                showSignInDialog = false
                 successListener()
             }
         }

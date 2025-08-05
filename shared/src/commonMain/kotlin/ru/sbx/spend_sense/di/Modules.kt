@@ -26,6 +26,7 @@ import ru.sbx.spend_sense.db.AppDb
 import ru.sbx.spend_sense.extentions.appLog
 import ru.sbx.spend_sense.platform.DeviceInfo
 import ru.sbx.spend_sense.presentation.auth.register.RegisterViewModel
+import ru.sbx.spend_sense.presentation.auth.signin.SignInViewModel
 import ru.sbx.spend_sense.presentation.categories.list.compose.CategoriesViewModel
 import ru.sbx.spend_sense.presentation.common.ui.calendar.DatePickerViewModel
 import ru.sbx.spend_sense.presentation.events.creation.EventCreationViewModel
@@ -110,6 +111,7 @@ object ViewModelsModule {
         single { CategoriesViewModel(get()) }
         factory { EventCreationViewModel() }
         factory { RegisterViewModel(get(), get()) }
+        factory { SignInViewModel(get(), get()) }
     }
 }
 
