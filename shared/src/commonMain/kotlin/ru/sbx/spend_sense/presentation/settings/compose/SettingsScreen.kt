@@ -1,6 +1,7 @@
 package ru.sbx.spend_sense.presentation.settings.compose
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ru.sbx.spend_sense.MR
+import ru.sbx.spend_sense.presentation.auth.AuthView
 import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
 import ru.sbx.spend_sense.presentation.settings.SettingsViewModel
 
@@ -26,16 +28,12 @@ fun BoxScope.SettingsScreen(
 ) {
     val state by viewModel.state.collectAsState()
 
-    Column(modifier = Modifier.fillMaxWidth().align(Alignment.Center)) {
+    Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.Top) {
 
-        Card(
-            modifier = Modifier.padding(16.dp).fillMaxWidth(),
-            backgroundColor = AppThemeProvider.colors.surface
-        ) {
-            Text(
-                state.info, color = AppThemeProvider.colors.onSurface,
-                modifier = Modifier.padding(16.dp)
-            )
+        if (state.isAuth) {
+
+        } else {
+            AuthView()
         }
 
         Row(
