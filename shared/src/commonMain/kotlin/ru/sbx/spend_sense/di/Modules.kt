@@ -104,7 +104,7 @@ object RepositoriesModule {
 object ViewModelsModule {
     val viewModels = module {
         single { RootViewModel(get()) }
-        factory { SettingsViewModel(get(), get()) }
+        factory { SettingsViewModel(get(), get(), get(), get(), get()) }
         single(DatePickerSingleQualifier) { DatePickerViewModel() }
         factory(DatePickerFactoryQualifier) { DatePickerViewModel() }
         factory { EventsViewModel(get(), get()) }
