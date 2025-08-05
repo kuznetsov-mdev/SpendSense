@@ -1,5 +1,6 @@
 package ru.sbx.spend_sense.presentation.settings
 
+import ru.sbx.spend_sense.presentation.base.BaseEvent
 import ru.sbx.spend_sense.presentation.base.BaseViewState
 
 class SettingsContract {
@@ -19,5 +20,10 @@ class SettingsContract {
                 email = ""
             )
         }
+    }
+
+    sealed interface Event : BaseEvent {
+        data object DataSynced : Event
+        data class Error(val message: String) : Event
     }
 }

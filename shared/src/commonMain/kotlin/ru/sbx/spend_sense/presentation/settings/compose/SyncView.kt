@@ -4,8 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material3.Text
@@ -27,7 +29,8 @@ fun SyncView(
     logoutListener: () -> Unit
 ) {
     AppCard {
-        Box {
+        //IntrinsicSize.Min - don't allow to container fill all screen size
+        Box(modifier = Modifier.height(IntrinsicSize.Min)) {
             Column {
                 Text(
                     text = "${MR.string.auth_info} $email",
@@ -49,7 +52,7 @@ fun SyncView(
 
             if (isLoading) {
                 Box(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize() //<- try fill max screen size, but get size only Text+AppButton+AppButton
                         .background(AppThemeProvider.colors.background.copy(0.5f))
                         .clickable { }
 

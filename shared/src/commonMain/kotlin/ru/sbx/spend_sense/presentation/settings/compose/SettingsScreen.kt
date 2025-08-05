@@ -34,13 +34,11 @@ fun BoxScope.SettingsScreen(
             SyncView(
                 email = state.email,
                 isLoading = state.isLoading,
-                syncListener = { },
-                logoutListener = { }
+                syncListener = { viewModel.sync() },
+                logoutListener = { viewModel.logout() }
             )
         } else {
-            AuthView {
-                //sync
-            }
+            AuthView { viewModel.sync() }
         }
 
         Row(
