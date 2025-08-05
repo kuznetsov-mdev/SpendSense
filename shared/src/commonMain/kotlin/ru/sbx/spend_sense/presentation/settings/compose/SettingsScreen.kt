@@ -33,7 +33,9 @@ fun BoxScope.SettingsScreen(
         if (state.isAuth) {
 
         } else {
-            AuthView()
+            AuthView {
+                //sync
+            }
         }
 
         Row(

@@ -25,7 +25,7 @@ import ru.sbx.spend_sense.presentation.common.ui.atoms.AppCard
 import ru.sbx.spend_sense.presentation.common.ui.theme.AppThemeProvider
 
 @Composable
-fun AuthView() {
+fun AuthView(successListener: () -> Unit) {
     var showSignInDialog by remember { mutableStateOf(false) }
     var showRegisterDialog by remember { mutableStateOf(false) }
 
@@ -55,6 +55,15 @@ fun AuthView() {
                 modifier = Modifier.padding(16.dp).align(Alignment.CenterHorizontally)
                     .clickable { showRegisterDialog = true }
             )
+        }
+    }
+
+    if (showRegisterDialog) {
+        Dialog(onDismissRequest = { showRegisterDialog = false }) {
+            RegisterDialog(getKoinInstance()) {
+                showRegisterDialog = false
+                successListener()
+            }
         }
     }
 }

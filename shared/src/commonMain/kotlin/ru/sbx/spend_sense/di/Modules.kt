@@ -109,6 +109,7 @@ object ViewModelsModule {
         factory { EventsViewModel(get(), get()) }
         single { CategoriesViewModel(get()) }
         factory { EventCreationViewModel() }
+        factory { RegisterViewModel(get(), get()) }
     }
 }
 
