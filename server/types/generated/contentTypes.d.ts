@@ -386,7 +386,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   attributes: {
     colorHex: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
-    createdAtLocal: Schema.Attribute.DateTime;
+    createdAtLocal: Schema.Attribute.BigInteger;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.String;
@@ -400,7 +400,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
-    updatedAtLocal: Schema.Attribute.DateTime;
+    updatedAtLocal: Schema.Attribute.BigInteger;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     userId: Schema.Attribute.BigInteger;
@@ -421,10 +421,10 @@ export interface ApiSpendEventSpendEvent extends Struct.CollectionTypeSchema {
     categoryId: Schema.Attribute.String;
     cost: Schema.Attribute.Decimal;
     createdAt: Schema.Attribute.DateTime;
-    createdAtLocal: Schema.Attribute.DateTime;
+    createdAtLocal: Schema.Attribute.BigInteger;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.DateTime;
+    date: Schema.Attribute.BigInteger;
     idLocal: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -436,7 +436,7 @@ export interface ApiSpendEventSpendEvent extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
-    updatedAtLocal: Schema.Attribute.DateTime;
+    updatedAtLocal: Schema.Attribute.BigInteger;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     userId: Schema.Attribute.BigInteger;
