@@ -31,7 +31,12 @@ fun BoxScope.SettingsScreen(
     Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.Top) {
 
         if (state.isAuth) {
-
+            SyncView(
+                email = state.email,
+                isLoading = state.isLoading,
+                syncListener = { },
+                logoutListener = { }
+            )
         } else {
             AuthView {
                 //sync
